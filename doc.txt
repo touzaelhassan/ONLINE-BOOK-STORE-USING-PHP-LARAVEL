@@ -25,6 +25,10 @@
    # php artisan make:model User -mcr
    # php artisan migrate
 
+   # Creating Model Methods
+
+        - Getting data form database method
+
    # Create a New User
    # Login
    # Testing Reset Password Functionality
