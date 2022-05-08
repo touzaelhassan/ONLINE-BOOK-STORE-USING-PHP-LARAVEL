@@ -1,0 +1,35 @@
+---------------------------------------
+| ONLINE BOOK STORE USING PHP-LARAVEL |
+---------------------------------------
+
+| THE APPLICATION FUNCTIONS
+
+     # User Authencation System ( Signup - Login - Logout )
+
+     # Publishers ( CRUD )
+     # Authors ( CRUD )
+     # Categories [ Design - Coding - Marketing ] ( CRUD )
+     # Books ( CRUD )
+     # Clients
+
+
+| GETTING STARTED
+
+   # composer create-project laravel/laravel project-name
+   # composer require laravel/ui  
+   # php artisan ui bootstrap --auth  =>  This command create all routes, controllers and views That we need for authentication
+   # npm install 
+   # npm run dev 
+   # Turning The Application To Arabic Version 
+   # php artisan make:model -mcr
+   # php artisan migrate
+
+   # Create a New User
+   # Login
+   # Testing Reset Password Functionality
+   # php artisan config:cache
+
+| DATABASE
+
+   # - Migrations : php artisan make:migration create_users_table
+   # - php artisan migrate

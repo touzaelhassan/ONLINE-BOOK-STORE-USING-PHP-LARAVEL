@@ -3,7 +3,7 @@
 return [
     'dashboard' => 'الرئيسيه',
     'login' => 'تسجيل الدخول',
-    'register' => 'إنشاء حساب جديد',
+    'register' => 'إنشاء حساب',
     'logout' => 'تسجيل الخروج',
     'remember_me' => 'تذكرني',
     'password' => 'كلمه المرور',
