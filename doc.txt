@@ -25,9 +25,10 @@
    # php artisan make:model User -mcr
    # php artisan migrate
 
-   # Creating Model Methods
+   # Creting The HompPage route
+   # Creating The HomePage controller
+   # Creating Model Methods To interact with The database
 
-        - Getting data form database method
 
    # Create a New User
    # Login
