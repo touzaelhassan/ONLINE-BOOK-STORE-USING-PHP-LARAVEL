@@ -20,8 +20,9 @@
    # php artisan ui bootstrap --auth  =>  This command create all routes, controllers and views That we need for authentication
    # npm install 
    # npm run dev 
+
    # Turning The Application To Arabic Version 
-   # php artisan make:model -mcr
+   # php artisan make:model User -mcr
    # php artisan migrate
 
    # Create a New User
