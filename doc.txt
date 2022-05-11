@@ -4,10 +4,17 @@
 
 | Laravel = PHP Framework for creating websites and web applications
 
-            # Routes ( web.php )
-            # Controllers
-            # Models
-            # Views
+            # URL
+
+            # Web Browser
+
+            # Web Application 
+
+                 - Routes ( web.php )
+                 - Controllers
+                 - Models
+                 - Views
+
 
 | GETTING STARTED
 
@@ -19,10 +26,12 @@
 
    # Creating migrations files ( Database Tables Structure )  =>  php artisan make:migration create_users_table
    # Creating The Database Tables                             =>  php artisan migrate
+
    # Creting The Route                                        =>  Route::get('/', [usersController::class, 'index'])->name('users')
+   
    # Creating The Controller                                  =>  php artisan make:controller UsersController
    # Creating The Model                                       =>  php artisan make:model User
-
+   # Creating The View
 
 
 
