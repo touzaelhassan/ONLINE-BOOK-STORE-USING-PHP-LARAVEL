@@ -8,9 +8,24 @@
             <div class="card">
                 <div class="card-header">معرض الكتب</div>
 
+
+                <div>
+                  <form action="{{route('search')}}" method="GET">
+                    <input type="text" name="keyword">
+                    <button type="submit" class="btn btn-secondary">ابحث</button>
+                  </form>
+                </div>
+
                 <div class="card-body">
                    <h3>{{ $title }}</h3>
-                   <div class="row">
+                   <div>
+                     @foreach ($books as $book)
+                      <p>{{ $book->title }}</p>
+                      <img src="{{ asset('storage/' . $book->cover_image) }}" class="w-25"> 
+                      <p>{{ $book->description }}</p>
+                     @endforeach
+                   </div>
+                   {{-- <div class="row">
                         @if ($books->count())
                             @foreach ($books as $book)
                                 @if ($book->number_of_books > 0)
@@ -40,7 +55,7 @@
                         @else
                             <h3>لا توجد نتائج</h3>
                         @endif
-                   </div>
+                   </div> --}}
                 </div>
             </div>
         </div>

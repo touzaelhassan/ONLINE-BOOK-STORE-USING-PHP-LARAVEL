@@ -20,4 +20,6 @@ Auth::routes();
 
 Route::get('/', [GalleryController::class, 'index']);
 
+Route::get('/search', [GalleryController::class, 'search'])->name('search');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

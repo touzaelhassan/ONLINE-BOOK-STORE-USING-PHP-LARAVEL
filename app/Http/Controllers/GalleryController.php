@@ -13,4 +13,11 @@ class GalleryController extends Controller
         $title = 'عرض الكتب حسب تاريخ الإضافة';
         return view('gallery', compact('title', 'books'));
     }
+
+    public function search(Request $request)
+    {
+        $books = Book::where('title', 'like', "%{$request->keyword}%")->paginate(12);
+        $title = 'عرض نتائج البحث عن :' . $request->keyword;
+        return view('gallery', compact('title', 'books'));
+    }
 }
