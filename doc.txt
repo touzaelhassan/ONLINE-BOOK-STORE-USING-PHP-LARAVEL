@@ -2,16 +2,12 @@
 | ONLINE BOOK STORE USING PHP-LARAVEL |
 ---------------------------------------
 
-| THE APPLICATION FUNCTIONS
+| Laravel = PHP Framework for creating websites and web applications
 
-     # User Authencation System ( Signup - Login - Logout )
-
-     # Publishers ( CRUD )
-     # Authors ( CRUD )
-     # Categories [ Design - Coding - Marketing ] ( CRUD )
-     # Books ( CRUD )
-     # Clients
-
+            # Routes ( web.php )
+            # Controllers
+            # Models
+            # Views
 
 | GETTING STARTED
 
@@ -21,21 +17,41 @@
    # npm install 
    # npm run dev 
 
-   # Turning The Application To Arabic Version 
-   # php artisan make:model User -mcr
-   # php artisan migrate
-
-   # Creting The HompPage route
-   # Creating The HomePage controller
-   # Creating Model Methods To interact with The database
+   # Creating migrations files ( Database Tables Structure )  =>  php artisan make:migration create_users_table
+   # Creating The Database Tables                             =>  php artisan migrate
+   # Creting The Route                                        =>  Route::get('/', [usersController::class, 'index'])->name('users')
+   # Creating The Controller                                  =>  php artisan make:controller UsersController
+   # Creating The Model                                       =>  php artisan make:model User
 
 
-   # Create a New User
-   # Login
-   # Testing Reset Password Functionality
-   # php artisan config:cache
 
-| DATABASE
 
-   # - Migrations : php artisan make:migration create_users_table
-   # - php artisan migrate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
