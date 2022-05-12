@@ -13,8 +13,8 @@
         </div>
 
         <div class="gallery__content">
-            <h2 class="gallery__title">عرض الكتب حسب تاريخ الإضافة</h2>
-            <div class="gallery__items">              
+            <h2 class="gallery__title">{{ $title }}</h2>
+            <div class="gallery__items">
                 @foreach ($books as $book)
 
                 <div class="gallery__item">
@@ -24,7 +24,7 @@
                     </a>
 
                     @if ($book->category != NULL)
-                    <a href="#" class="category__name">{{ $book->category->name }}</a>
+                    <a href="{{ route('gallery-categories', $book->category)}}" class="category__name">{{ $book->category->name }}</a>
                     @endif
 
                     @if ($book->authors->isNotEmpty())
@@ -32,7 +32,7 @@
                             <b> تأليف  : </b>
                             @foreach ($book->authors as $author)
                             {{ $loop->first ? '' : 'و' }}
-                            <a href="#">{{ $author->name }}</a>
+                            <a href="{{ route('gallery-authors', $author) }}">{{ $author->name }}</a>
                             @endforeach  
                         </div>
                     @endif
