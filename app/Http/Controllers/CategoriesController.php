@@ -89,4 +89,18 @@ class CategoriesController extends Controller
         $title = 'الكتب التابعة لتصنيف : ' . $category->name;
         return view('gallery', compact('books', 'title'));
     }
+
+    public function list()
+    {
+        $categories = Category::all()->sortBy('name');
+        $title = 'التصنيفات';
+        return view('categories.index', compact('categories', 'title'));
+    }
+
+    public function search(Request $request)
+    {
+        $categories = Category::where('name', 'like', "%$request->keyword%")->get()->sortBy('name');
+        $title = 'نتائج البحث عن : ' . $request->keyword;
+        return view('categories.index', compact('categories', 'title'));
+    }
 }

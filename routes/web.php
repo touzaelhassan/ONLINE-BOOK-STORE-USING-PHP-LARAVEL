@@ -24,11 +24,14 @@ Auth::routes();
 Route::get('/', [GalleryController::class, 'index']);
 
 Route::get('/book/{book}', [BooksController::class, 'details'])->name('book-details');
+Route::get('/search', [GalleryController::class, 'search'])->name('search');
 
+Route::get('/categories', [CategoriesController::class, 'list'])->name('categories');
 Route::get('/categories/{category}', [CategoriesController::class, 'result'])->name('gallery-categories');
+Route::get('/categories/search', [CategoriesController::class, 'search'])->name('categories-search');
+
 
 Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gallery-authors');
 
-Route::get('/search', [GalleryController::class, 'search'])->name('search');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
