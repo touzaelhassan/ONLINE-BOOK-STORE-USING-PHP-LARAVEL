@@ -35,7 +35,9 @@ Route::get('/publishers', [PublishersController::class, 'list'])->name('publishe
 Route::get('/publishers/{publisher}', [PublishersController::class, 'result'])->name('gallery-publishers');
 Route::get('/publishers/search', [PublishersController::class, 'search'])->name('publishers-search');
 
+Route::get('/authors', [AuthorsController::class, 'list'])->name('authors');
 Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gallery-authors');
+Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

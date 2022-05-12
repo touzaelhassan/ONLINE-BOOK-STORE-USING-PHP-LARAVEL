@@ -45,6 +45,9 @@
                         <li class="nav-item">
                             <a href="{{ route('publishers')}}" class="nav-link">الناشرون</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('authors')}}" class="nav-link">المؤلفون</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
