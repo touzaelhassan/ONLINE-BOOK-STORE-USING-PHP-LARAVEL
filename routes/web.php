@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\PublishersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,9 @@ Route::get('/categories', [CategoriesController::class, 'list'])->name('categori
 Route::get('/categories/{category}', [CategoriesController::class, 'result'])->name('gallery-categories');
 Route::get('/categories/search', [CategoriesController::class, 'search'])->name('categories-search');
 
+Route::get('/publishers', [PublishersController::class, 'list'])->name('publishers');
+Route::get('/publishers/{publisher}', [PublishersController::class, 'result'])->name('gallery-publishers');
+Route::get('/publishers/search', [PublishersController::class, 'search'])->name('publishers-search');
 
 Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gallery-authors');
 

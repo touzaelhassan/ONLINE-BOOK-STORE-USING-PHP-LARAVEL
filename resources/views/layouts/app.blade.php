@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a href="{{ route('categories')}}" class="nav-link">التصنيفات</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('publishers')}}" class="nav-link">الناشرون</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
