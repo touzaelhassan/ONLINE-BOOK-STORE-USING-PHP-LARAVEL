@@ -4,19 +4,24 @@
 
 <div class="container">
     <div class="gallery"> 
+
         <div class="gallery__search">
             <form action="{{route('search')}}" method="GET">
                 <input type="text" name="keyword">
                 <button type="submit" class="btn btn-secondary">ابحث</button>
             </form>
         </div>
+
         <div class="gallery__content">
             <h2 class="gallery__title">عرض الكتب حسب تاريخ الإضافة</h2>
-            <div class="gallery__items">
+            <div class="gallery__items">              
                 @foreach ($books as $book)
+
                 <div class="gallery__item">
-                    <div class="book__image"><img src="{{ asset('storage/' . $book->cover_image) }}" class="w-100"></div>
-                    <h5 class="book__title">{{ $book->title }}</h5>
+                    <a href="{{route('book-details', $book->id)}}">
+                        <div class="book__image"><img src="{{ asset('storage/' . $book->cover_image) }}" class="w-100"></div>
+                        <h5 class="book__title">{{ $book->title }}</h5>
+                    </a>
 
                     @if ($book->category != NULL)
                     <a href="#" class="category__name">{{ $book->category->name }}</a>
@@ -31,11 +36,12 @@
                             @endforeach  
                         </div>
                     @endif
-
                 </div>
+
                 @endforeach
             </div>
         </div>
+
     </div>
 </div>
 
