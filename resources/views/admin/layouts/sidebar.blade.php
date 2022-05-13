@@ -3,7 +3,7 @@
     <h5><a href="{{ route('admin-index') }}">لوحة التحكم</a></h5>
     <ul class="sidebar__list">
         <li class="sidebar__item">
-            <a href="#" class="sidebar__link">الكتب</a>
+            <a href="{{ route('books-index')}}" class="sidebar__link">الكتب</a>
         </li>
         <li class="sidebar__item">
           <a href="#" class="sidebar__link">التصنيفات</a>

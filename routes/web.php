@@ -41,5 +41,4 @@ Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gal
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
 Route::get('/admin', [AdminsController::class, 'index'])->name('admin-index');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/books', [BooksController::class, 'index'])->name('books-index');
