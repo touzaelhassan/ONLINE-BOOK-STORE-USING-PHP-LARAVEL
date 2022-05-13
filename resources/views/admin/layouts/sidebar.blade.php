@@ -1,6 +1,6 @@
 <aside class="sidebar">
     <h5>أكاديمية حسوب</h5>
-    <h5>لوحة التحكم</h5>
+    <h5><a href="{{ route('admin-index') }}">لوحة التحكم</a></h5>
     <ul class="sidebar__list">
         <li class="sidebar__item">
             <a href="#" class="sidebar__link">الكتب</a>

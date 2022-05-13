@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\AuthorsController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CategoriesController;
@@ -39,9 +40,6 @@ Route::get('/authors', [AuthorsController::class, 'list'])->name('authors');
 Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gallery-authors');
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
-Route::get('/admin', function () {
-  return view('admin.layouts.app');
-});
-
+Route::get('/admin', [AdminsController::class, 'index'])->name('admin-index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

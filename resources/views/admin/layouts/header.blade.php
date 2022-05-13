@@ -1,3 +1,5 @@
 <header class="header">
-    <h5>The Header</h5>
+    <h5>
+        @yield('heading')
+    </h5>
 </header>

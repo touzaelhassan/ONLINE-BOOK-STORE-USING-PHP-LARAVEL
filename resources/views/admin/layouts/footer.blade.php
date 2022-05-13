@@ -1,3 +1,3 @@
 <footer class="footer">
-    <h5>The Footer</h5>
+    <p>جميع الحقوق محفوظة</p>
 </footer>
