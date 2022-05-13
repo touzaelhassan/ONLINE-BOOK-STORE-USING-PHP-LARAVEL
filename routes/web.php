@@ -39,5 +39,9 @@ Route::get('/authors', [AuthorsController::class, 'list'])->name('authors');
 Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gallery-authors');
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
+Route::get('/admin', function () {
+  return view('admin.layouts.app');
+});
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
