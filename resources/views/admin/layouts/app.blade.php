@@ -20,8 +20,11 @@
     <div class="dashboard-container">
         @include('admin.layouts.sidebar')
         <div class="dashboard">
+            @if (Session::has('flash_message'))
+                <div class="p-3 mb-2 bg-success text-white rounded text-center">{{ session('flash_message') }}</div>
+            @endif
             @include('admin.layouts.header')
-            <section class="dashboard__content">
+            <section class="dashboard__content m-3">
                 @yield('content')
             </section>
             @include('admin.layouts.footer')

@@ -5,10 +5,9 @@
 @endsection
 
 @section('content')
-    <div><a href="">أضف كتابا جديدا</a></div>
-    <hr>
-    <section class="">
-      <table class="table">
+    <div><a href="{{ route('books-create') }}" class="btn btn-success text-white">أضف كتابا جديدا</a></div>
+    <section>
+      <table class="table table-bordered">
         <thead>
             <tr>
               <th>العنوان</th>
@@ -22,7 +21,7 @@
         <tbody>
         @foreach ($books as $book)
             <tr>
-              <td><a href="#">{{ $book->title }}</a></td>
+              <td><a href="{{ route('books-show', $book) }}">{{ $book->title }}</a></td>
               <td>{{ $book->isbn }}</td>
               <td>{{ $book->category->name }}</td>
               <td>

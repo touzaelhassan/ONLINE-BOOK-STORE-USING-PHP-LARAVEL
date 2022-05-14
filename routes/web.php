@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Auth::routes();
 
 Route::get('/', [GalleryController::class, 'index']);
@@ -41,4 +40,7 @@ Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gal
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
 Route::get('/admin', [AdminsController::class, 'index'])->name('admin-index');
+Route::post('/admin/books', [BooksController::class, 'store'])->name('books-index');
 Route::get('/admin/books', [BooksController::class, 'index'])->name('books-index');
+Route::get('/admin/books/create', [BooksController::class, 'create'])->name('books-create');
+Route::get('/admin/books/{book}', [BooksController::class, 'show'])->name('books-show');
