@@ -6,7 +6,7 @@
             <a href="{{ route('books-index')}}" class="sidebar__link">الكتب</a>
         </li>
         <li class="sidebar__item">
-          <a href="#" class="sidebar__link">التصنيفات</a>
+          <a href="{{ route('categories.index') }}" class="sidebar__link">التصنيفات</a>
         </li>
         <li class="sidebar__item">
             <a href="#" class="sidebar__link">المؤلف</a>
