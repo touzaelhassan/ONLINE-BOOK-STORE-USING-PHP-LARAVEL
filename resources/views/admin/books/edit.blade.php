@@ -1,20 +1,21 @@
 @extends('admin.layouts.app')
 
 @section('heading')
-    إضافة كتاب جديد
+    تعديل بيانات الكتاب
 @endsection
 
 @section('content')
-    <div>أضف كتابا جديدا</div>
+    <div>عدل بيانات الكتاب</div>
     <hr>
-    <form action="{{ route('books-index') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('books-show', $book)}}" method="POST" enctype="multipart/form-data">
 
+        @method('patch')
         @csrf
 
         <div class="form-group row">
             <label for="title" class="col-md-4 col-form-label text-md-end">عنوان الكتاب</label>
             <div class="col-md-6">
-                <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}">
+                <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $book->title }}">
                 @error('title')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -26,7 +27,7 @@
         <div class="form-group row">
             <label for="isbn" class="col-md-4 col-form-label text-md-end">الرقم التسلسلي</label>
             <div class="col-md-6">
-                <input type="text" id="isbn" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ old('isbn') }}">
+                <input type="text" id="isbn" class="form-control @error('isbn') is-invalid @enderror" name="isbn" value="{{ $book->isbn }}">
                 @error('isbn')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -51,9 +52,9 @@
             <label for="category" class="col-md-4 col-form-label text-md-end">التصنيف</label>
             <div class="col-md-6">
                 <select id="category" class="form-control" name="category">
-                    <option disabled selected>اختر تصنيفا</option>
+                    <option disabled {{ $book->category == null ? "selected" : ""}} >اختر تصنيفا</option>
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" {{ $book->category == $category ? "selected" : ""}}>{{ $category->name }}</option>
                     @endforeach
                 </select>
                 @error('category')
@@ -68,9 +69,9 @@
             <label for="authors" class="col-md-4 col-form-label text-md-end">المؤلفون</label>
             <div class="col-md-6">
                 <select multiple id="authors" class="form-control" name="authors[]">
-                    <option disabled selected>اختر المؤلفين</option>
+                    <option disabled {{ $book->authors()->count() == 0 ? 'selected' : '' }} >اختر المؤلفين</option>
                     @foreach ($authors as $author)
-                    <option value="{{ $author->id }}">{{ $author->name }}</option>
+                    <option value="{{ $author->id }}" {{ $book->authors->contains($author) ? 'selected' : '' }}>{{ $author->name }}</option>
                     @endforeach
                 </select>
                 @error('authors')
@@ -85,9 +86,9 @@
             <label for="publisher" class="col-md-4 col-form-label text-md-end">المؤلفون</label>
             <div class="col-md-6">
                 <select id="publisher" class="form-control" name="publisher">
-                    <option disabled selected>اختر ناشرا</option>
+                    <option disabled {{ $book->publisher == null ? 'selected' : '' }}>اختر ناشرا</option>
                     @foreach ($publishers as $publisher)
-                    <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+                    <option value="{{ $publisher->id }}" {{ $book->publisher == $publisher ? 'selected' : '' }}>{{ $publisher->name }}</option>
                     @endforeach
                 </select>
                 @error('publisher')
@@ -102,7 +103,7 @@
             <label for="description" class="col-md-4 col-form-label text-md-end">الوصف</label>
             <div class="col-md-6">
                 <textarea type="text" id="description" class="form-control @error('description') is-invalid @enderror" name="description">
-                    {{ old('description') }}
+                  {{ $book->description }}
                 </textarea>
                 @error('description')
                 <span class="invalid-feedback" role="alert">
@@ -115,7 +116,7 @@
         <div class="form-group row">
             <label for="publish_year" class="col-md-4 col-form-label text-md-end">سنة النشر</label>
             <div class="col-md-6">
-                <input type="text" id="publish_year" class="form-control @error('publish_year') is-invalid @enderror" name="publish_year" value="{{ old('publish_year') }}">
+                <input type="text" id="publish_year" class="form-control @error('publish_year') is-invalid @enderror" name="publish_year" value="{{ $book->publish_year }}">
                 @error('publish_year')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -127,7 +128,7 @@
         <div class="form-group row">
             <label for="number_of_pages" class="col-md-4 col-form-label text-md-end">عدد الصفحات</label>
             <div class="col-md-6">
-                <input type="text" id="number_of_pages" class="form-control @error('number_of_pages') is-invalid @enderror" name="number_of_pages" value="{{ old('number_of_pages') }}">
+                <input type="text" id="number_of_pages" class="form-control @error('number_of_pages') is-invalid @enderror" name="number_of_pages" value="{{ $book->number_of_pages }}">
                 @error('number_of_pages')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -139,7 +140,7 @@
         <div class="form-group row">
             <label for="number_of_copies" class="col-md-4 col-form-label text-md-end">عدد النسخ</label>
             <div class="col-md-6">
-                <input type="text" id="number_of_copies" class="form-control @error('number_of_copies') is-invalid @enderror" name="number_of_copies" value="{{ old('number_of_copies') }}">
+                <input type="text" id="number_of_copies" class="form-control @error('number_of_copies') is-invalid @enderror" name="number_of_copies" value="{{ $book->number_of_copies }}">
                 @error('number_of_copies')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -151,7 +152,7 @@
         <div class="form-group row">
             <label for="price" class="col-md-4 col-form-label text-md-end">السعر</label>
             <div class="col-md-6">
-                <input type="text" id="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}">
+                <input type="text" id="price" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $book->price }}">
                 @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -162,7 +163,7 @@
 
         <div class="form-group row">
               <div class="col-md-1">
-                  <button type="submit" class="btn btn-primary">أضف</button>
+                  <button type="submit" class="btn btn-primary"> عدل</button>
               </div>
         </div>
 

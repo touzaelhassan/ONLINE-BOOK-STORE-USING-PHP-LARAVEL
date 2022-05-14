@@ -16,6 +16,7 @@
               <th>المؤلفون</th>
               <th>الناشر</th>
               <th>السعر</th>
+              <th>خيارات</th>  
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
               </td>
               <td>{{ $book->publisher->name }}</td>
               <td>{{ $book->price }}</td>
+              <td><a href="{{ route('books-edit', $book) }}" class="btn btn-success text-white btn-sm">تعديل</a></td>
             </tr>
         @endforeach
         </tbody>

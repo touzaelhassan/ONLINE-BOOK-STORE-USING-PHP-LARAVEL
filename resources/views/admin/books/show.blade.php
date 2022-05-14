@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="container">
+
     <div>{{$book->id}}</div>
     <div><img src="{{ asset('storage/' . $book->cover_image) }}"></div>
     <h4>{{$book->title}}</h4>
@@ -26,5 +27,8 @@
     <p>{{$book->number_of_copies}}</p>
     <p>{{$book->price}}</p>
     <p>{{$book->description}}</p>
+    
+    <td> <a href="{{ route('books-edit', $book) }}" class="btn btn-success btn-sm">تعديل</a></td>
+    
 </div>
 @endsection
