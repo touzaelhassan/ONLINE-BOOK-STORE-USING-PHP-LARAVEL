@@ -48,5 +48,5 @@ Route::get('/admin/books/{book}', [BooksController::class, 'show'])->name('books
 Route::get('/admin/books/create', [BooksController::class, 'create'])->name('books-create');
 Route::post('/admin/books', [BooksController::class, 'store'])->name('books-index');
 Route::patch('/admin/books/{book}', [BooksController::class, 'update']);
-
 Route::get('/admin/books/{book}/edit', [BooksController::class, 'edit'])->name('books-edit');
+Route::delete('/admin/books/{book}', [BooksController::class, 'destroy'])->name('books-destroy');

@@ -33,7 +33,14 @@
               </td>
               <td>{{ $book->publisher->name }}</td>
               <td>{{ $book->price }}</td>
-              <td><a href="{{ route('books-edit', $book) }}" class="btn btn-success text-white btn-sm">تعديل</a></td>
+              <td>
+                <a href="{{ route('books-edit', $book) }}" class="btn btn-success text-white btn-sm">تعديل</a>
+                <form action="{{ route('books-destroy', $book) }}" method="POST" class="d-inline-block">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger btn-sm">حدف</button>
+                </form>
+              </td>
             </tr>
         @endforeach
         </tbody>

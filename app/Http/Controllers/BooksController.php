@@ -122,7 +122,6 @@ class BooksController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'isbn' => ['required', 'alpha_num', Rule::unique('books', 'isbn')],
             'category' => 'nullable',
             'authors' => 'nullable',
             'publisher' => 'nullable',
@@ -165,9 +164,12 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        Storage::disk('public')->delete($book->cover_image);
+        $book->delete();
+        session()->flash('flash_message', 'تم حدف الكتاب بنجاح');
+        return redirect(route('books-index'));
     }
 
     public function details(Book $book)
