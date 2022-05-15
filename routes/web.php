@@ -42,17 +42,22 @@ Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gal
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
 // Admin Area Routes
-Route::get('/admin', [AdminsController::class, 'index'])->name('admin-index');
 
-Route::get('/admin/books', [BooksController::class, 'index'])->name('books-index');
-Route::get('/admin/books/{book}', [BooksController::class, 'show'])->name('books-show');
-Route::get('/admin/books/create', [BooksController::class, 'create'])->name('books-create');
-Route::post('/admin/books', [BooksController::class, 'store'])->name('books-index');
-Route::patch('/admin/books/{book}', [BooksController::class, 'update']);
-Route::get('/admin/books/{book}/edit', [BooksController::class, 'edit'])->name('books-edit');
-Route::delete('/admin/books/{book}', [BooksController::class, 'destroy'])->name('books-destroy');
 
-// Route::resource('/admin/books', 'BooksController');
-Route::resource('/admin/categories', CategoriesController::class);
-Route::resource('/admin/publishers', PublishersController::class);
-Route::resource('/admin/authors', AuthorsController::class);
+Route::prefix('/admin')->middleware('can:update-books')->group(function () {
+
+  Route::get('/', [AdminsController::class, 'index'])->name('admin-index');
+
+  Route::get('/books', [BooksController::class, 'index'])->name('books-index');
+  Route::get('/books/{book}', [BooksController::class, 'show'])->name('books-show');
+  Route::get('/books/create', [BooksController::class, 'create'])->name('books-create');
+  Route::post('/books', [BooksController::class, 'store'])->name('books-index');
+  Route::patch('/books/{book}', [BooksController::class, 'update']);
+  Route::get('/books/{book}/edit', [BooksController::class, 'edit'])->name('books-edit');
+  Route::delete('/books/{book}', [BooksController::class, 'destroy'])->name('books-destroy');
+
+  // Route::resource('/admin/books', 'BooksController');
+  Route::resource('/categories', CategoriesController::class);
+  Route::resource('/publishers', PublishersController::class);
+  Route::resource('/authors', AuthorsController::class);
+});
