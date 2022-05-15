@@ -15,7 +15,7 @@
             <a href="{{ route('publishers.index') }}" class="sidebar__link">الناشرون</a>
         </li>
         <li class="sidebar__item">
-            <a href="#" class="sidebar__link">المستخدون</a>
+            <a href="{{ route('users.index') }}" class="sidebar__link">المستخدون</a>
         </li>
     </ul>
 </aside>

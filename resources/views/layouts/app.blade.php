@@ -91,6 +91,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @can('update-books')
+                                        <a href="{{ route('admin-index') }}" class="dropdown-item">لوحة الإدارة</a>
+                                    @endcan
                                 </div>
 
                             </li>
