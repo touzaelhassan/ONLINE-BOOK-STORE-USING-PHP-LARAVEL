@@ -12,7 +12,7 @@
             <a href="#" class="sidebar__link">المؤلف</a>
         </li>
         <li class="sidebar__item">
-            <a href="#" class="sidebar__link">الناشرون</a>
+            <a href="{{ route('publishers.index') }}" class="sidebar__link">الناشرون</a>
         </li>
         <li class="sidebar__item">
             <a href="#" class="sidebar__link">المستخدون</a>

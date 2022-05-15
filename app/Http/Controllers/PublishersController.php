@@ -14,6 +14,8 @@ class PublishersController extends Controller
      */
     public function index()
     {
+        $publishers = Publisher::all();
+        return view('admin.publishers.index', compact('publishers'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PublishersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.publishers.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class PublishersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, ['name' => 'required']);
+
+        $publisher = new Publisher;
+        $publisher->name = $request->name;
+        $publisher->address = $request->address;
+
+        $publisher->save();
+
+        session()->flash('flash_message', 'تمت إضافة الناشر بنجاح');
+
+        return redirect(route('publishers.index'));
     }
 
     /**
@@ -56,7 +68,7 @@ class PublishersController extends Controller
      */
     public function edit(Publisher $publisher)
     {
-        //
+        return view('admin.publishers.edit', compact('publisher'));
     }
 
     /**
@@ -68,7 +80,14 @@ class PublishersController extends Controller
      */
     public function update(Request $request, Publisher $publisher)
     {
-        //
+        $this->validate($request, ['name' => 'required']);
+        $publisher->name = $request->name;
+        $publisher->address = $request->address;
+        $publisher->save();
+
+        session()->flash('flash_message', 'تم تعديل بيانات الناشر بنجاح');
+
+        return redirect(route('publishers.index'));
     }
 
     /**
@@ -79,7 +98,11 @@ class PublishersController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        //
+        $publisher->delete();
+
+        session()->flash('flash_message', 'تم حدف الناشر بنجاح');
+
+        return redirect(route('publishers.index'));
     }
 
     public function result(Publisher $publisher)

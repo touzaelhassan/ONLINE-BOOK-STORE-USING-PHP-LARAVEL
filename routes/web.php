@@ -53,3 +53,5 @@ Route::get('/admin/books/{book}/edit', [BooksController::class, 'edit'])->name('
 Route::delete('/admin/books/{book}', [BooksController::class, 'destroy'])->name('books-destroy');
 
 Route::resource('/admin/categories', CategoriesController::class);
+
+Route::resource('/admin/publishers', PublishersController::class);
