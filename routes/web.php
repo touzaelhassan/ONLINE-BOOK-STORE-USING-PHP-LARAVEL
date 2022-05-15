@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Authentication Routes
 Auth::routes();
 
+// Frontend Area Routes
 Route::get('/', [GalleryController::class, 'index']);
 
 Route::get('/book/{book}', [BooksController::class, 'details'])->name('book-details');
@@ -40,10 +42,8 @@ Route::get('/authors/{author}', [AuthorsController::class, 'result'])->name('gal
 Route::get('/authors/search', [AuthorsController::class, 'search'])->name('authors-search');
 
 // Admin Area Routes
-
 Route::get('/admin', [AdminsController::class, 'index'])->name('admin-index');
 
-// Route::resource('/admin/books', 'BooksController');
 Route::get('/admin/books', [BooksController::class, 'index'])->name('books-index');
 Route::get('/admin/books/{book}', [BooksController::class, 'show'])->name('books-show');
 Route::get('/admin/books/create', [BooksController::class, 'create'])->name('books-create');
@@ -52,6 +52,7 @@ Route::patch('/admin/books/{book}', [BooksController::class, 'update']);
 Route::get('/admin/books/{book}/edit', [BooksController::class, 'edit'])->name('books-edit');
 Route::delete('/admin/books/{book}', [BooksController::class, 'destroy'])->name('books-destroy');
 
+// Route::resource('/admin/books', 'BooksController');
 Route::resource('/admin/categories', CategoriesController::class);
-
 Route::resource('/admin/publishers', PublishersController::class);
+Route::resource('/admin/authors', AuthorsController::class);

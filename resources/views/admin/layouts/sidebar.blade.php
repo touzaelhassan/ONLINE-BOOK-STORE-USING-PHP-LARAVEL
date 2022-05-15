@@ -9,7 +9,7 @@
           <a href="{{ route('categories.index') }}" class="sidebar__link">التصنيفات</a>
         </li>
         <li class="sidebar__item">
-            <a href="#" class="sidebar__link">المؤلف</a>
+            <a href="{{ route('authors.index') }}" class="sidebar__link">المؤلفون</a>
         </li>
         <li class="sidebar__item">
             <a href="{{ route('publishers.index') }}" class="sidebar__link">الناشرون</a>
